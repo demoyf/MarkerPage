@@ -14,7 +14,7 @@ new Vue({
     },
     mounted: function () {
         let self = this;
-        this.$http.jsonp("http://localhost:3000/").then(response => {
+        this.$http.jsonp("http://xyf0412.oicp.io:3000/").then(response => {
             if (response.body.code==200) {
                 var temp = response.body.data;
                 self.leftNavData = temp;
