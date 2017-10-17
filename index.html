@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--双核浏览器，开启webkit，没有webkit开启ie兼容内核、最后是ie标准-->
+    <meta name="renderer" content="webkit|ie-comp|ie-stand"/>
+    <!--让ie以最高版本的可用模式渲染显示内容-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <!--响应式-->
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta/>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="./public/stylesheets/bootstrap.min.css" rel="stylesheet"/>
+    <link href="./public/dist/aos.css" rel="stylesheet"/>
+    <!--如果是低于ie9的版本，需要引入一下两个js库，让html5标签有效-->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        .my-person-page .other-author-page {
+            margin-top: 100px;
+            padding-top: 50px;
+            border-top: 1px solid rgba(0, 0, 0, 0.3);
+        }
+
+        .other-author-page #accordion .my-panel {
+            border: none;
+            border-top: 1px solid #ddd;
+        }
+
+        .other-author-collapse-panel #accordion .my-panel > .panel-heading {
+            background-color: transparent;
+            border: none !important;
+        }
+
+        .other-author-collapse-panel #accordion .my-panel > .panel-heading a:hover {
+            text-decoration: none;
+        }
+
+        .other-author-collapse-panel #accordion .my-panel > .panel-heading a {
+            text-decoration: none;
+        }
+
+        .other-author-collapse-panel #accordion .my-panel .my-panel-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            line-height: 1.5em;
+            font-size: 18px;
+            border: none !important;
+        }
+
+        .other-author-collapse-panel #accordion .my-panel .my-panel-content > img {
+            height: 100%;
+            width: 100%;
+            max-width: 400px;
+        }
+    </style>
+</head>
+<body>
+<div id="HeaderApp">
+    <component-header></component-header>
+    <my-left-nav :nav-data="leftNavData"></my-left-nav>
+</div>
+<div class="home-page-search-content">
+    <div class="container">
+        <transition name="fade-slide-top">
+            <div class="row" v-if="isShow">
+                <div class="col-md-8 col-md-offset-2">
+                    <h1 class="text-center home-title">BootCDN</h1>
+                </div>
+            </div>
+        </transition>
+        <transition name="fade-slide-right">
+            <div class="row" v-if="isShow">
+                <div class="col-md-8 col-md-offset-2">
+                    <h4 class="text-center" style="color:rgba(255,255,255,0.8);">
+                        稳定、快速、免费的前端开源项目 CDN 加速服务
+                    </h4>
+                </div>
+            </div>
+        </transition>
+        <transition name="fade-slide-left">
+            <div class="row" v-if="isShow">
+                <div class="col-md-8 col-md-offset-2">
+                    <h5 class="text-center" style="color:rgba(255,255,255,0.8);">
+                        共收录了 3150 个前端开源项目
+                    </h5>
+                </div>
+            </div>
+        </transition>
+        <transition name="fade-slide-bottom">
+            <div class="row" v-if="isShow">
+                <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1 search-control">
+                    <input type="text" class="form-control text-center search-input input-lg"
+                           placeholder="      输入关键词,例如：Ajax 后回车" v-model="searchText"
+                           v-on:input="searchInput" v-on:keyup.enter="submitSearchText"/>
+                    <button class="btn search-icon" type="button" v-on:click="changeSearchText">
+                        <!--glyphicon glyphicon-remove (删除按钮)-->
+                        <span class="glyphicon" v-bind:class="{'glyphicon-remove':closeOrSearchIcon,
+                        'glyphicon-search':(!closeOrSearchIcon)}"></span>
+                        <!--<span class="glyphicon glyphicon-search"></span>-->
+                    </button>
+                </div>
+            </div>
+        </transition>
+        <span class="glyphicon glyphicon-chevron-down to-next-page"></span>
+    </div>
+</div>
+<div class="my-person-page">
+    <div class="container person-content-row">
+        <div class="row">
+            <!--data-aos  col-sm-offset  img-src  h5 h4 p span-->
+            <per-personal-part :data-aos="fadeUpRight" :sm-offset="offsetOne"
+                               :img-src="imageSrc.first"></per-personal-part>
+            <per-personal-part :data-aos="fadeUpLeft" :sm-offset="offsetTwo"
+                               :img-src="imageSrc.second"></per-personal-part>
+            <per-personal-part :data-aos="fadeUpLeft" :sm-offset="offsetOne"
+                               :img-src="imageSrc.third"></per-personal-part>
+            <per-personal-part :data-aos="fadeUpRight" :sm-offset="offsetTwo"
+                               :img-src="imageSrc.third"></per-personal-part>
+            <per-personal-part :data-aos="fadeUpLeft" :sm-offset="offsetOne"
+                               :img-src="imageSrc.second"></per-personal-part>
+            <per-personal-part :data-aos="fadeUpLeft" :sm-offset="offsetTwo"
+                               :img-src="imageSrc.third"></per-personal-part>
+        </div>
+    </div>
+    <div class="other-author-page">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-sm-10 col-xs-11 other-author-collapse-panel">
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                        <div class="panel panel-default my-panel">
+                            <div class="panel-heading" role="tab" id="headingOne">
+                                <h4 class="panel-title">
+                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne"
+                                       aria-expanded="true" aria-controls="collapseOne">
+                                        Collapsible Group Item #1
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel"
+                                 aria-labelledby="headingOne">
+                                <div class="panel-body">
+                                    <div class="my-panel-content">
+                                        <img src="./public/images/6.jpg">
+                                        <p>
+                                            raft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan
+                                            excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw
+                                            denim aesthetic synth nesciunt you probably haven't heard of them accusamus
+                                            labore sustainable VHS.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default my-panel">
+                            <div class="panel-heading" role="tab" id="headingTwo">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                                       href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        Collapsible Group Item #2
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel"
+                                 aria-labelledby="headingTwo">
+                                <div class="panel-body">
+                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
+                                    richardson ad
+                                    squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck
+                                    quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird
+                                    on it
+                                    squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh
+                                    helvetica,
+                                    craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan
+                                    excepteur
+                                    butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic
+                                    synth
+                                    nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default my-panel">
+                            <div class="panel-heading" role="tab" id="headingThree">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                                       href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                        Collapsible Group Item #3
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel"
+                                 aria-labelledby="headingThree">
+                                <div class="panel-body">
+                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
+                                    richardson ad
+                                    squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck
+                                    quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird
+                                    on it
+                                    squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh
+                                    helvetica,
+                                    craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan
+                                    excepteur
+                                    butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic
+                                    synth
+                                    nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="./public/dist/aos.js"></script>
+<script src="./node_modules/vue/dist/vue.min.js"></script>
+<script src="./node_modules/_vue-resource@1.3.4@vue-resource/dist/vue-resource.min.js"></script>
+<script src="./dist/build.bundle.js"></script>
+<script src="./dist/personPart.bundle.js"></script>
+<script>
+    AOS.init({
+        duration: 1000,
+        easing: 'ease-in-sine',
+        delay: 0
+    });
+</script>
+</body>
+</html>
