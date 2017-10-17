@@ -30,14 +30,14 @@ new Vue({
                 parentId: parentId,
                 childId: childId
             }
-            url = "http://106.14.13.178:3000/result/child";
+            url = "http://localhost:3000/result/child";
         } else {
             var id = localStorage.getItem("parentId");
             console.log(id);
             params = {
                 parentId: id,
             }
-            url = "http://106.14.13.178:3000/result/parent";
+            url = "http://localhost:3000/result/parent";
         }
         this.$http.jsonp(url, {
             params: params
@@ -46,10 +46,10 @@ new Vue({
             var data = response.body.data;
             if (code == 123) {
                 self.childList = [];
-                self.parentList =  data;
+                self.parentList = data;
             } else if (code == 456) {
                 self.childList = data.childData;
-                self.parentList =  data.parentData;
+                self.parentList = data.parentData;
             } else {
                 throw ERROR("TypeError");
             }
