@@ -30,14 +30,14 @@ new Vue({
                 parentId: parentId,
                 childId: childId
             }
-            url = "http://xyf0412.oicp.io:3000/result/child";
+            url = "http://106.14.13.178:3000/result/child";
         } else {
             var id = localStorage.getItem("parentId");
             console.log(id);
             params = {
                 parentId: id,
             }
-            url = "http://xyf0412.oicp.io:3000/result/parent";
+            url = "http://106.14.13.178:3000/result/parent";
         }
         this.$http.jsonp(url, {
             params: params
