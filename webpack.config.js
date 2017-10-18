@@ -5,7 +5,8 @@ module.exports = {
     entry: {
         build:['./src/main.js','./src/page.js'],
         personPart:'./src/personalPage.js',
-        childPage:'./src/childPage/childVue.js'
+        childPage:'./src/childPage/childVue.js',
+        searchPage:'./src/searchPage/SearchResult.js'
     },
     output: {
         path: path.resolve(__dirname, './dist'),

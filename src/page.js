@@ -16,7 +16,8 @@ new Vue({
             }
         },
         submitSearchText: function () {
-            console.log("xyf", this.searchText);
+            localStorage.setItem("searchText", this.searchText);
+            window.location.href = "./SearchResult.html";
         },
         scrollToNextPage:function () {
             var y = 0;
