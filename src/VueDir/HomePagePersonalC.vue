@@ -1,35 +1,34 @@
 <template>
     <div id="per-page-part-component">
-        <div class="col-md-3 col-md-offset-1 col-sm-4 col-xs-4 col-xs-offset-1 per-page-part" :class="MySmOffset"
-             :data-aos="MyDataAos" aos-once="true">
-            <div class="per-page-part-img">
-                <img class="myImage" :src="ImageSrc"/>
+        <a :href="personal.href" target="_blank">
+            <div class="col-md-3 col-sm-4 col-xs-4 per-page-part col-xs-offset-1"
+                 :data-aos="personal.aosData" aos-once="true">
+                <div class="per-page-part-img">
+                    <img class="myImage" :src="personal.imageSrc"/>
+                </div>
+                <div class="per-page-part-content">
+                    <h5><span class="glyphicon glyphicon-heart"></span>TEMPS</h5>
+                    <h4>
+                        {{personal.title}}
+                    </h4>
+                    <p>
+                        {{personal.description}}
+                    </p>
+                    <button type="button" class="btn view-detail-btn">View Detail <span
+                            class="glyphicon glyphicon-chevron-right"></span></button>
+                    <h5 class="per-page-part-content-time">{{personal.create_time}}</h5>
+                </div>
             </div>
-            <div class="per-page-part-content">
-                <h5><span class="glyphicon glyphicon-heart"></span>OFFERS</h5>
-                <h4>
-                    A Free Year of SitePoint Premium When You Join SiteGround
-                </h4>
-                <p>
-                    We've teamed up with SiteGround to offer you up to 65% off web hosting,
-                    plus free access to the entire SitePoint Premium library for a limited time only (worth $99).
-                </p>
-                <button type="button" class="btn view-detail-btn">View Detail <span
-                        class="glyphicon glyphicon-chevron-right"></span></button>
-                <span class="per-page-part-content-time">Jack Frankie,21 hours ago</span>
-            </div>
-        </div>
+        </a>
     </div>
 </template>
 <script>
     export default {
         name: 'per-page-part-component',
-        props: ['dataAos', 'smOffset', 'imgSrc'],
+        props: ['personal'],
         data: function () {
             return {
-                MyDataAos: this.dataAos,
-                MySmOffset: this.smOffset,
-                ImageSrc: this.imgSrc
+                personal: this.personal
             };
         },
         mounted: function () {
@@ -47,6 +46,14 @@
         }
     }
 
+    #per-page-part-component > a {
+        color: rgba(0, 0, 0, 0.8);
+    }
+
+    #per-page-part-component > a:hover {
+        color: rgba(0, 0, 0, 0.8);
+    }
+
     .my-person-page .container .row .per-page-part:hover {
         cursor: pointer;
     }
@@ -58,7 +65,7 @@
         padding: 0px;
         display: flex;
         flex-direction: column;
-        height: 326px;
+        height: 310px;
         min-width: 280px;
         overflow: hidden;
     }
@@ -102,10 +109,11 @@
         color: rgba(93, 93, 93, 0.72);
         font-family: cursive;
         margin: 5px 0;
+        font-size: 13px;
     }
 
     .my-person-page .container .row .per-page-part .per-page-part-content h5 span {
-        margin-right: 10px;
+        margin-right: 7px;
     }
 
     .my-person-page .container .row .per-page-part .per-page-part-content p {
@@ -160,9 +168,9 @@
         color: white;
     }
 
-    .my-person-page .container .row .per-page-part .per-page-part-content > span.per-page-part-content-time {
+    .my-person-page .container .row .per-page-part .per-page-part-content > .per-page-part-content-time {
         position: relative;
-        top: 0;
+        top: -20px;
         -webkit-transition: all 0.5s;
         -moz-transition: all 0.5s;
         -ms-transition: all 0.5s;
@@ -170,14 +178,15 @@
         transition: all 0.5s;
     }
 
-    .my-person-page .container .row .per-page-part:hover .per-page-part-content > span.per-page-part-content-time {
+    .my-person-page .container .row .per-page-part:hover .per-page-part-content > .per-page-part-content-time {
         position: relative;
-        top: 50px;
+        top: 30px;
         -webkit-transition: all 0s;
         -moz-transition: all 0s;
         -ms-transition: all 0s;
         -o-transition: all 0s;
         transition: all 0s;
+        color: rgba(0,0,0,0.7);
     }
 
     .my-person-page .container .row .per-page-part:hover .per-page-part-content .view-detail-btn {
@@ -192,6 +201,6 @@
     .my-person-page .container .row .per-page-part .per-page-part-content h4 {
         font-weight: bold;
         margin: 5px 0;
+        margin-top: 10px;
     }
-
 </style>

@@ -106,25 +106,14 @@
                 </div>
             </div>
         </transition>
-        <span class="glyphicon glyphicon-chevron-down to-next-page"></span>
+        <span class="glyphicon glyphicon-chevron-down to-next-page" @click="scrollTopNextPage()"></span>
     </div>
 </div>
 <div class="my-person-page">
     <div class="container person-content-row">
         <div class="row">
             <!--data-aos  col-sm-offset  img-src  h5 h4 p span-->
-            <per-personal-part :data-aos="fadeUpRight" :sm-offset="offsetOne"
-                               :img-src="imageSrc.first"></per-personal-part>
-            <per-personal-part :data-aos="fadeUpLeft" :sm-offset="offsetTwo"
-                               :img-src="imageSrc.second"></per-personal-part>
-            <per-personal-part :data-aos="fadeUpLeft" :sm-offset="offsetOne"
-                               :img-src="imageSrc.third"></per-personal-part>
-            <per-personal-part :data-aos="fadeUpRight" :sm-offset="offsetTwo"
-                               :img-src="imageSrc.third"></per-personal-part>
-            <per-personal-part :data-aos="fadeUpLeft" :sm-offset="offsetOne"
-                               :img-src="imageSrc.second"></per-personal-part>
-            <per-personal-part :data-aos="fadeUpLeft" :sm-offset="offsetTwo"
-                               :img-src="imageSrc.third"></per-personal-part>
+            <per-personal-part v-for="child in personalList" :personal="child"></per-personal-part>
         </div>
     </div>
     <div class="other-author-page">
@@ -229,6 +218,9 @@
         easing: 'ease-in-sine',
         delay: 0
     });
+    window.onload = function () {
+        AOS.init({});
+    }
 </script>
 </body>
 </html>

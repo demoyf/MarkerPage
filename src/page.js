@@ -17,6 +17,10 @@ new Vue({
         },
         submitSearchText: function () {
             console.log("xyf", this.searchText);
+        },
+        scrollTopNextPage:function () {
+           var top =  this.$el.scrollHeight;
+            // window.scrollTo(0, top);
         }
     },
     computed: {
