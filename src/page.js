@@ -18,9 +18,20 @@ new Vue({
         submitSearchText: function () {
             console.log("xyf", this.searchText);
         },
-        scrollTopNextPage:function () {
-           var top =  this.$el.scrollHeight;
-            // window.scrollTo(0, top);
+        scrollToNextPage:function () {
+            var y = 0;
+            var scrollHeight = this.$el.scrollHeight+35;
+            var temp = window.requestAnimationFrame(scroll);
+            function scroll() {
+                if (y>=scrollHeight) {
+                    window.cancelAnimationFrame(temp);
+                    return false;
+                }else {
+                    y += 15;
+                    window.scrollTo(0, y);
+                    temp = window.requestAnimationFrame(scroll);
+                }
+            }
         }
     },
     computed: {
@@ -37,5 +48,6 @@ new Vue({
         setTimeout(function () {
             self.isShow = true;
         }, 300);
+        this.scrollHeight = this.$el.scrollHeight;
     }
 });

@@ -69,7 +69,7 @@
         <transition name="fade-slide-top">
             <div class="row" v-if="isShow">
                 <div class="col-md-8 col-md-offset-2">
-                    <h1 class="text-center home-title">BootCDN</h1>
+                    <h1 class="text-center home-title">COLLECTION</h1>
                 </div>
             </div>
         </transition>
@@ -106,7 +106,7 @@
                 </div>
             </div>
         </transition>
-        <span class="glyphicon glyphicon-chevron-down to-next-page" @click="scrollTopNextPage()"></span>
+        <span class="glyphicon glyphicon-chevron-down to-next-page" @click="scrollToNextPage()"></span>
     </div>
 </div>
 <div class="my-person-page">
@@ -214,7 +214,7 @@
 <script src="./dist/personPart.bundle.js"></script>
 <script>
     AOS.init({
-        duration: 1000,
+        duration: 600,
         easing: 'ease-in-sine',
         delay: 0
     });
