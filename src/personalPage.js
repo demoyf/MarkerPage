@@ -12,6 +12,8 @@ new Vue({
         headerIdList:['headerOne','headerTwo','headerThree','headerFour','headerFive','headerSix'],
         toIdList:['collapseOne','collapseTwo','collapseThree','collapseFour','collapseFive','collapseSix'],
         tempHrefList:['#collapseOne','#collapseTwo','#collapseThree','#collapseFour','#collapseFive','#collapseSix'],
+        otherImageSrc: ['./public/images/p5.jpeg', './public/images/p2.jpg', './public/images/p3.jpg',
+            './public/images/p4.jpeg', './public/images/p6.jpg', './public/images/p7.jpg'],
         personalList: [],
         parentContent: [],
     },
@@ -27,6 +29,7 @@ new Vue({
         var headerIdList = this.headerIdList;
         var toIdList = this.toIdList;
         var tempHrefList = this.tempHrefList;
+        var otherImageSrc = this.otherImageSrc;
         this.$http.jsonp("http://localhost:8888/result/person").then(response => {
             var code = response.body.code;
             var data = response.body.data;
@@ -39,7 +42,7 @@ new Vue({
                 self.personalList = personal;
                 var otherContent = data.otherContent;
                 for (var i = 0; i < personal.length; i++) {
-                    otherContent[i].imageSrc = imgSrc[i];
+                    otherContent[i].imageSrc = otherImageSrc[i];
                     otherContent[i].headerId = headerIdList[i];
                     otherContent[i].toId = toIdList[i];
                     otherContent[i].tempHref = tempHrefList[i];

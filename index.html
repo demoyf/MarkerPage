@@ -13,51 +13,12 @@
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="./public/stylesheets/bootstrap.min.css" rel="stylesheet"/>
     <link href="./public/dist/aos.css" rel="stylesheet"/>
+    <link href="./public/stylesheets/style.css" rel="stylesheet"/>
     <!--如果是低于ie9的版本，需要引入一下两个js库，让html5标签有效-->
     <!--[if lt IE 9]>
     <script src="https://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <style>
-        .my-person-page .other-author-page {
-            margin-top: 100px;
-            padding-top: 50px;
-            border-top: 1px solid rgba(0, 0, 0, 0.3);
-        }
-
-        .other-author-page #accordion .my-panel {
-            border: none;
-            border-top: 1px solid #ddd;
-        }
-
-        .other-author-collapse-panel #accordion .my-panel > .panel-heading {
-            background-color: transparent;
-            border: none !important;
-        }
-
-        .other-author-collapse-panel #accordion .my-panel > .panel-heading a:hover {
-            text-decoration: none;
-        }
-
-        .other-author-collapse-panel #accordion .my-panel > .panel-heading a {
-            text-decoration: none;
-        }
-
-        .other-author-collapse-panel #accordion .my-panel .my-panel-content {
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            line-height: 1.5em;
-            font-size: 18px;
-            border: none !important;
-        }
-
-        .other-author-collapse-panel #accordion .my-panel .my-panel-content > img {
-            height: 100%;
-            width: 100%;
-            max-width: 400px;
-        }
-    </style>
 </head>
 <body>
 <div id="HeaderApp">
@@ -116,7 +77,9 @@
             <per-personal-part v-for="child in personalList" :personal="child"></per-personal-part>
         </div>
     </div>
-    <div class="other-author-page">
+    <div class="other-author-page" aos="fade-right" aos-offset="300" aos-once="true">
+        <h2 class="header-h">
+            书签</h2>
         <div class="container">
             <div class="row">
                 <div class="col-md-10 col-sm-10 col-xs-12 other-author-collapse-panel">
@@ -143,8 +106,8 @@
     });
     window.onload = function () {
         AOS.init({});
-//        js 控制组件成为手风琴效果
-    }
+    };
+    //        js 控制组件成为手风琴效果
     $(function () {
         $(window).onload(function () {
             $("#collapse").collapse();

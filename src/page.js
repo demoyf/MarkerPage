@@ -23,7 +23,7 @@ new Vue({
             window.location.href = "./SearchResult.html";
         },
         scrollToNextPage:function () {
-            var y = 0;
+            var y = window.scrollY;
             var scrollHeight = this.$el.scrollHeight+35;
             var temp = window.requestAnimationFrame(scroll);
             function scroll() {
