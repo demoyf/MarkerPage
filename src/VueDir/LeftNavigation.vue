@@ -9,9 +9,7 @@
                     <li class="hover-default"><span class="glyphicon glyphicon-log-in"></span>Login</li>
                 </ul>
                 <ul class="list-unstyled has-border-top one-part-nav">
-                    <li class="hover-default"><span class="glyphicon glyphicon-book"></span>Book</li>
-                    <li class="hover-default"><span class="glyphicon glyphicon-play"></span>Courses</li>
-                    <li class="hover-default"><span class="glyphicon glyphicon-map-marker"></span>Paths</li>
+                    <li class="hover-default" @click="toPersonalPage()"><span class="glyphicon glyphicon-fire"></span>IndividualWorks</li>
                 </ul>
                 <ul class="list-unstyled has-border-top one-part-nav">
                     <div v-for="(temp,index) in navData">
@@ -98,7 +96,7 @@
                     var id = current.getAttribute("data-role");
                     localStorage.setItem("which", "parent");
                     localStorage.setItem("parentId", id);
-                    window.location.href = "demo.html";
+                    window.location.href = "Other.html";
                     return false;
                 }
                 var next = current.nextElementSibling;
@@ -116,7 +114,11 @@
                 localStorage.setItem("which", "child");
                 localStorage.setItem("parentId", parentId);
                 localStorage.setItem("childId", id);
-                window.location.href = "demo.html";
+                window.location.href = "Other.html";
+            },
+            toPersonalPage:function () {
+                localStorage.setItem("which", "personal");
+                window.location.href = "Other.html";
             }
         },
         mounted: function () {

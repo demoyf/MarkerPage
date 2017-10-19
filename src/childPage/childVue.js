@@ -25,19 +25,20 @@ new Vue({
         if (which == "child") {
             var parentId = localStorage.getItem("parentId");
             var childId = localStorage.getItem("childId");
-            console.log(parentId, childId);
             params = {
                 parentId: parentId,
                 childId: childId
             }
             url = "http://localhost:8888/result/child";
-        } else {
+        } else if (which == "parent") {
             var id = localStorage.getItem("parentId");
-            console.log(id);
             params = {
                 parentId: id,
             }
             url = "http://localhost:8888/result/parent";
+        } else {
+            url = "http://localhost:8888/result/allPersonal";
+            params = {};
         }
         this.$http.jsonp(url, {
             params: params
@@ -51,7 +52,7 @@ new Vue({
                 self.childList = data.childData;
                 self.parentList = data.parentData;
             } else {
-                throw ERROR("TypeError");
+                console.log(data);
             }
         }, err => {
             throw err;
