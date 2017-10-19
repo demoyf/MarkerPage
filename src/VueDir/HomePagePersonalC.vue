@@ -1,5 +1,5 @@
 <template>
-    <div id="per-page-part-component">
+    <div class="per-page-part-component">
         <a :href="personal.href" target="_blank">
             <div class="col-md-3 col-sm-4 col-xs-4 per-page-part col-xs-offset-1"
                  :data-aos="personal.aosData" aos-once="true">
@@ -38,19 +38,18 @@
 </script>
 <style>
     @media screen and (max-width: 670px) {
-        #per-page-part-component {
+        .per-page-part-component {
             display: flex;
             flex-direction: row;
             justify-content: center;
             height: auto;
         }
     }
-
-    #per-page-part-component > a {
+    .per-page-part-component > a {
         color: rgba(0, 0, 0, 0.8);
     }
 
-    #per-page-part-component > a:hover {
+    .per-page-part-component > a:hover {
         color: rgba(0, 0, 0, 0.8);
     }
 
