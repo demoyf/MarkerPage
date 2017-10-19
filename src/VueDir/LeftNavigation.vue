@@ -14,13 +14,13 @@
                 <ul class="list-unstyled has-border-top one-part-nav">
                     <div v-for="(temp,index) in navData">
                         <li :class="randomColor()" :data-role="temp.id"
-                            v-on:click="changeChildList($event,temp.hasChild,index)"><i
+                            v-on:click="changeChildList($event,temp.hasChild,index,temp.title)"><i
                                 class="circle-icon"></i>{{temp.title}}
                             <span v-if="temp.hasChild" class="glyphicon glyphicon-menu-down"></span>
                         </li>
                         <ul v-if="temp.hasChild" style="display: none;padding: 0;">
                             <li v-for="child in temp.childList" class="child-list"
-                                @click="getChildPageById(temp.id,child.id)">
+                                @click="getChildPageById(temp.id,child.id,child.title)">
                                 {{child.title}}
                             </li>
                         </ul>
@@ -90,12 +90,13 @@
                 }
                 return this.colorList[index];
             },
-            changeChildList: function (event, isShow, index) {
+            changeChildList: function (event, isShow, index,title) {
                 var current = event.currentTarget;
                 if (!isShow) {
                     var id = current.getAttribute("data-role");
                     localStorage.setItem("which", "parent");
                     localStorage.setItem("parentId", id);
+                    localStorage.setItem("otherTitle", "书签：" + title);
                     window.location.href = "Other.html";
                     return false;
                 }
@@ -110,14 +111,16 @@
                 }
                 this.hideList[index] = !this.hideList[index];
             },
-            getChildPageById: function (parentId, id) {
+            getChildPageById: function (parentId, id,title) {
                 localStorage.setItem("which", "child");
                 localStorage.setItem("parentId", parentId);
                 localStorage.setItem("childId", id);
+                localStorage.setItem("otherTitle", "书签：" + title);
                 window.location.href = "Other.html";
             },
             toPersonalPage:function () {
                 localStorage.setItem("which", "personal");
+                localStorage.setItem("otherTitle", "个人作品");
                 window.location.href = "Other.html";
             }
         },

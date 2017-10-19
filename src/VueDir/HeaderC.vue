@@ -19,7 +19,7 @@
             <nav class="per-header-nav pull-right hidden-xs">
                 <ul class="nav navbar-nav">
                     <li class="hidden-sm hidden-xs">
-                        <a href="#">
+                        <a @click="toPersonal()" class="toPersonal">
                             <span class="glyphicon glyphicon-leaf"></span>Personal</a>
                     </li>
                     <button type="button" class="btn hidden-xs per-header-user-button"><span
@@ -33,15 +33,20 @@
 <script>
     import bus from './../bus';
     export default {
-        name:'componentHeader',
+        name: 'componentHeader',
         data: function () {
             return {
-                msg:123
+                msg: 123
             };
         },
-        methods:{
-            askShowNav:function () {
+        methods: {
+            askShowNav: function () {
                 bus.$emit('changeshow');
+            },
+            toPersonal: function () {
+                localStorage.setItem("which", "personal");
+                localStorage.setItem("otherTitle", "个人作品");
+                window.location.href = "Other.html";
             }
         }
     };
@@ -88,6 +93,10 @@
         -ms-transition: all 0.5s;
         -o-transition: all 0.5s;
         transition: all 0.5s;
+    }
+
+    .per-header .per-header-nav ul > li > a:hover {
+        cursor: pointer;
     }
 
     .per-header .per-header-nav ul > li:hover > a span {

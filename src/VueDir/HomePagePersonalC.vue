@@ -8,10 +8,11 @@
                 </div>
                 <div class="per-page-part-content">
                     <h5><span class="glyphicon glyphicon-heart"></span>TEMPS</h5>
-                    <h4>
+                    <h4 style="height: 20px;overflow: hidden;white-space:nowrap;text-overflow:ellipsis;"
+                        :title="personal.title">
                         {{personal.title}}
                     </h4>
-                    <p>
+                    <p style="height: 81px;overflow: hidden;" :title="personal.description">
                         {{personal.description}}
                     </p>
                     <button type="button" class="btn view-detail-btn">View Detail <span
@@ -45,6 +46,7 @@
             height: auto;
         }
     }
+
     .per-page-part-component > a {
         color: rgba(0, 0, 0, 0.8);
     }
@@ -58,13 +60,13 @@
     }
 
     .my-person-page .container .row .per-page-part {
-        margin-top: 50px;
+        margin-top: 30px;
         border-radius: 0 0 10px 10px;
         box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.1);
         padding: 0px;
         display: flex;
         flex-direction: column;
-        height: 310px;
+        min-height: 310px;
         min-width: 280px;
         overflow: hidden;
     }
@@ -169,7 +171,7 @@
 
     .my-person-page .container .row .per-page-part .per-page-part-content > .per-page-part-content-time {
         position: relative;
-        top: -20px;
+        top: -100px;
         -webkit-transition: all 0.5s;
         -moz-transition: all 0.5s;
         -ms-transition: all 0.5s;
@@ -179,13 +181,13 @@
 
     .my-person-page .container .row .per-page-part:hover .per-page-part-content > .per-page-part-content-time {
         position: relative;
-        top: 30px;
-        -webkit-transition: all 0s;
-        -moz-transition: all 0s;
-        -ms-transition: all 0s;
-        -o-transition: all 0s;
-        transition: all 0s;
-        color: rgba(0,0,0,0.7);
+        top: 50px;
+        -webkit-transition: all 0.5s;
+        -moz-transition: all 0.5s;
+        -ms-transition: all 0.5s;
+        -o-transition: all 0.5s;
+        transition: all 0.5s;
+        color: rgba(0, 0, 0, 0.7);
     }
 
     .my-person-page .container .row .per-page-part:hover .per-page-part-content .view-detail-btn {

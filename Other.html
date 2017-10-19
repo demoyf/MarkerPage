@@ -17,11 +17,37 @@
     <script src="https://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <style>
+        .my-person-page {
+            width: 100%;
+            min-height: 600px;
+            padding-top: 50px;
+            margin-bottom: 100px;
+        }
+        .my-person-page .header-h {
+            margin-left: 7%;
+            margin-right: 0;
+            margin-top: 60px;
+            margin-bottom: 0;
+            font-family: "FangSong", cursive;
+            color: rgba(0, 0, 0, 0.74);
+            font-weight: bold;
+            text-shadow: 2px 1px 0px rgba(0, 0, 0, 0.2);
+        }
+    </style>
 </head>
 <body>
 <div id="resultPageApp">
     <component-header></component-header>
     <my-left-nav :nav-data="leftNavData"></my-left-nav>
+    <div class="my-person-page">
+        <div class="container person-content-row">
+            <h3 class="header-h">{{otherTitle}}</h3>
+            <div class="row">
+                <per-personal-part v-for="child in otherList" :personal="child"></per-personal-part>
+            </div>
+        </div>
+    </div>
 </div>
 <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>

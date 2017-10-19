@@ -62,7 +62,6 @@ body, html {
 
 .home-page-search-content .container > .row {
     margin-top: 10px;
-
 }
 
 .home-page-search-content .container .row h1.home-title {
@@ -127,10 +126,4 @@ body, html {
         transform: scale(1.15) translateY(30%);
         opacity: 1;
     }
-}
-.my-person-page {
-    width: 100%;
-    min-height: 600px;
-    padding-top: 50px;
-    margin-bottom: 100px;
 }

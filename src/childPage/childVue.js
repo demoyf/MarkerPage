@@ -3,16 +3,27 @@
  */
 import HeaderC from './../VueDir/HeaderC.vue'
 import leftNavComponent from './../VueDir/LeftNavigation.vue';
+import onePart from './../VueDir/HomePagePersonalC.vue';
+import './../home/HomePage.css';
 new Vue({
     el: '#resultPageApp',
     data: {
-        childList: [],
-        parentList: [],
-        leftNavData: []
+        otherList: [],
+        leftNavData: [],
+        otherImageSrc: ['./public/images/p5.jpeg', './public/images/p2.jpg', './public/images/p3.jpg',
+            './public/images/p4.jpeg', './public/images/p6.jpg', './public/images/p7.jpg', './public/images/5.jpg', './public/images/2.jpg', './public/images/3.jpg',
+            './public/images/4.jpg', './public/images/6.jpg', './public/images/7.jpg'],
+        otherTitle: ""
     },
     components: {
         componentHeader: HeaderC,
-        myLeftNav: leftNavComponent
+        myLeftNav: leftNavComponent,
+        perPersonalPart: onePart,
+    },
+    methods: {
+        randomSrc: function () {
+            return this.otherImageSrc[Math.floor(Math.random() * this.otherImageSrc.length)];
+        }
     },
     mounted: function () {
         let self = this;
@@ -22,6 +33,7 @@ new Vue({
         var list = JSON.parse(temp);
         this.leftNavData = list.list;
         var url = "";
+        this.otherTitle = localStorage.getItem("otherTitle");
         if (which == "child") {
             var parentId = localStorage.getItem("parentId");
             var childId = localStorage.getItem("childId");
@@ -34,7 +46,7 @@ new Vue({
             var id = localStorage.getItem("parentId");
             params = {
                 parentId: id,
-            }
+            };
             url = "http://localhost:8888/result/parent";
         } else {
             url = "http://localhost:8888/result/allPersonal";
@@ -45,15 +57,11 @@ new Vue({
         }).then(response => {
             var code = response.body.code;
             var data = response.body.data;
-            if (code == 123) {
-                self.childList = [];
-                self.parentList = data;
-            } else if (code == 456) {
-                self.childList = data.childData;
-                self.parentList = data.parentData;
-            } else {
-                console.log(data);
+            self.otherList = [];
+            for (var i = 0; i < data.length; i++) {
+                data[i].imageSrc = self.randomSrc();
             }
+            self.otherList = data;
         }, err => {
             throw err;
         });
