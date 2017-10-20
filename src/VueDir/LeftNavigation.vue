@@ -152,6 +152,8 @@
         background-color: white;
         display: flex;
         flex-direction: column;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
         overflow: scroll;
         position: relative;
     }

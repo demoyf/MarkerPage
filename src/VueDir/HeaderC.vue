@@ -55,8 +55,9 @@
     #per-header {
         display: flex;
         flex-direction: row;
+        -webkit-flex-direction: row;
+        -ms-flex-direction: row;
     }
-
     .container .navbar-header > svg.per-svg-icon {
         height: 40px;
         fill: #fff;

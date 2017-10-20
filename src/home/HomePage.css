@@ -12,14 +12,17 @@ body, html {
     margin-bottom: 0px;
     background-repeat: repeat;
     padding-top: 100px;
-    background-color: #27ae60bb;
+    background-color: rgba(39, 174, 96, 0.7);
 }
 
 .home-page-search-content .container .row .search-control {
     display: flex;
     flex-direction: row;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
     background-color: white;
     justify-content: space-between;
+    -webkit-justify-content: space-between;
     padding: 5px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;

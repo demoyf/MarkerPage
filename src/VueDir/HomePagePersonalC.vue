@@ -42,8 +42,12 @@
         .per-page-part-component {
             display: flex;
             flex-direction: row;
+            -webkit-flex-direction: row;
+            -ms-flex-direction: row;
             justify-content: center;
+            -webkit-justify-content: center;
             height: auto;
+
         }
     }
 
