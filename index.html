@@ -119,7 +119,9 @@
         delay: 0
     });
     window.onload = function () {
-        AOS.init({});
+        setTimeout(function () {
+            AOS.init({});
+        }, 1000);
     };
     //        js 控制组件成为手风琴效果
 </script>
