@@ -30,7 +30,7 @@ new Vue({
         var toIdList = this.toIdList;
         var tempHrefList = this.tempHrefList;
         var otherImageSrc = this.otherImageSrc;
-        this.$http.jsonp("http://localhost:8888/result/person").then(response => {
+        this.$http.jsonp("http://106.14.13.178:8888/result/person").then(response => {
             var code = response.body.code;
             var data = response.body.data;
             if (code == 200) {

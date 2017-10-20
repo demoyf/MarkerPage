@@ -7,7 +7,7 @@ new Vue({
     el: '#HeaderApp',
     data: {
         leftNavData: [],
-        url: "http://localhost:8888/"
+        url: "http://106.14.13.178:8888/"
     },
     components: {
         componentHeader: HeaderC,

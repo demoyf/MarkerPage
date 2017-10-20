@@ -4,7 +4,6 @@
 import HeaderC from './../VueDir/HeaderC.vue'
 import leftNavComponent from './../VueDir/LeftNavigation.vue';
 import onePart from './../VueDir/HomePagePersonalC.vue';
-import './../home/HomePage.css';
 new Vue({
     el: '#resultPageApp',
     data: {
@@ -41,15 +40,15 @@ new Vue({
                 parentId: parentId,
                 childId: childId
             }
-            url = "http://localhost:8888/result/child";
+            url = "http://106.14.13.178:8888/result/child";
         } else if (which == "parent") {
             var id = localStorage.getItem("parentId");
             params = {
                 parentId: id,
             };
-            url = "http://localhost:8888/result/parent";
+            url = "http://106.14.13.178:8888/result/parent";
         } else {
-            url = "http://localhost:8888/result/allPersonal";
+            url = "http://106.14.13.178:8888/result/allPersonal";
             params = {};
         }
         this.$http.jsonp(url, {
