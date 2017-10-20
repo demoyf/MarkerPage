@@ -222,7 +222,7 @@
     }
 
     #left-nav-component .my-navigation .one-part-nav div > li.hover-blue > i.circle-icon::before {
-        background-color: #1C94C6;
+        background-color: #1c94c6;
     }
 
     #left-nav-component .my-navigation .one-part-nav div > li.hover-blue-muted > i.circle-icon::before {
@@ -234,7 +234,7 @@
     }
 
     #left-nav-component .my-navigation .one-part-nav div > li.hover-purple > i.circle-icon::before {
-        background-color: #669;
+        background-color: #666699;
     }
 
     #left-nav-component .my-navigation .one-part-nav div > li.hover-yellow > i.circle-icon::before {
@@ -247,42 +247,42 @@
 
     #left-nav-component .my-navigation .one-part-nav .hover-default:hover {
         color: rgba(0, 0, 0, 0.7);
-        background-color: #3ec9cb66;
+        background-color: rgba(62, 201, 203, 0.42);
         cursor: pointer;
     }
 
     #left-nav-component .my-navigation .one-part-nav div > li.hover-orange:hover {
-        background-color: #ef8d24aa;
+        background-color: rgba(239, 141, 36, 0.67);
         cursor: pointer;
         color: rgba(0, 0, 0, 0.7);
     }
 
     #left-nav-component .my-navigation .one-part-nav div > li.hover-yellow:hover {
-        background-color: #f6b33caa;
+        background-color: rgba(246, 179, 60, 0.67);
         cursor: pointer;
         color: rgba(0, 0, 0, 0.7);
     }
 
     #left-nav-component .my-navigation .one-part-nav div > li.hover-green:hover {
-        background-color: #24b3b5aa;
+        background-color: rgba(36, 179, 181, 0.67);
         cursor: pointer;
         color: rgba(0, 0, 0, 0.7);
     }
 
     #left-nav-component .my-navigation .one-part-nav div > li.hover-purple:hover {
-        background-color: #6f6f9faa;
+        background-color: rgba(111, 111, 159, 0.67);
         cursor: pointer;
         color: rgba(0, 0, 0, 0.7);
     }
 
     #left-nav-component .my-navigation .one-part-nav div > li.hover-blue:hover {
-        background-color: #1C94C6aa;
+        background-color: rgba(28, 148, 198, 0.67);
         cursor: pointer;
         color: rgba(0, 0, 0, 0.7);
     }
 
     #left-nav-component .my-navigation .one-part-nav div > li.hover-blue-muted:hover {
-        background-color: #248aafaa;
+        background-color: rgba(36, 138, 175, 0.67);
         cursor: pointer;
         color: rgba(0, 0, 0, 0.7);
     }
