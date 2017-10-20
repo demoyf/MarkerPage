@@ -11,7 +11,7 @@
                         <path d="M 21 28 L 25 24 L 32 30 L 41 23 L 44 27 L 33 37"></path>
                     </g>
                 </svg>
-                <a class="navbar-brand hidden-sm hidden-xs per-nav-brand" href="/MyVue" style="color:white">Home</a>
+                <a class="navbar-brand hidden-sm hidden-xs per-nav-brand" href="/MarkerPage" style="color:white">Home</a>
                 <button type="button" class="visible-xs per-header-user-button btn">
                     <span class="glyphicon glyphicon-user"></span>
                 </button>

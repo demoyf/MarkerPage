@@ -106,6 +106,13 @@
 <script src="./dist/build.bundle.js"></script>
 <script src="./dist/personPart.bundle.js"></script>
 <script>
+    $(function () {
+        $(window).onload(function () {
+            $("#collapse").collapse();
+        });
+    });
+</script>
+<script>
     AOS.init({
         duration: 600,
         easing: 'ease-in-sine',
@@ -115,11 +122,6 @@
         AOS.init({});
     };
     //        js 控制组件成为手风琴效果
-    $(function () {
-        $(window).onload(function () {
-            $("#collapse").collapse();
-        });
-    });
 </script>
 </body>
 </html>
