@@ -50,9 +50,9 @@
         max-width: 90px;
         display: block;
         margin: 20px auto;
-        background-color: #27ae60bb;
+        background-color: rgba(39, 174, 96, 0.7);
         color: white;
-        box-shadow: 0 0 2px 3px #27ae6033;
+        box-shadow: 0 0 2px 3px rgba(39, 174, 96, 0.3);
         -webkit-transition: all 0.5s;
         -moz-transition: all 0.5s;
         -ms-transition: all 0.5s;
@@ -60,7 +60,7 @@
         transition: all 0.5s;
     }
     .my-panel .panel-collapse .my-panel-content .to-href:hover {
-        box-shadow: 0 0 5px 9px #27ae6033;
+        box-shadow: 0 0 5px 9px rgba(39, 174, 96, 0.3);
     }
     .my-panel .panel-collapse .my-panel-content .to-href > span {
         margin-left: 4px;
