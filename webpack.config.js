@@ -11,7 +11,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, './dist'),
         publicPath: '/dist/',
-        filename: '[name].bundle.[hash].js'
+        filename: '[name].bundle.1.js'
     },
     module: {
         //  loaders已经被遗弃，现在用rules

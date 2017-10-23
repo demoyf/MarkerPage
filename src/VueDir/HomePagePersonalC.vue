@@ -47,7 +47,9 @@
             justify-content: center;
             -webkit-justify-content: center;
             height: auto;
-
+        }
+        .per-page-part-component .per-page-part {
+            margin-left: 0!important;
         }
     }
 
@@ -72,7 +74,7 @@
         display: flex;
         flex-direction: column;
         min-height: 310px;
-        min-width: 280px;
+        min-width: 270px;
         overflow: hidden;
     }
 
