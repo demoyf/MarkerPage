@@ -16,23 +16,23 @@ new Vue({
             }
         },
         submitSearchText: function () {
-            if(this.searchText==""){
+            if (this.searchText == "") {
                 return false;
             }
             localStorage.setItem("searchText", this.searchText);
             window.location.href = "./SearchResult.html";
         },
-        scrollToNextPage:function () {
-            var y = window.scrollY||window.pageYOffset||50;
-            var scrollHeight = this.$el.scrollHeight+35;
+        scrollToNextPage: function () {
+            var y = window.scrollY || window.pageYOffset || 50;
+            var scrollHeight = this.$el.scrollHeight + 35;
             var temp = window.requestAnimationFrame(scroll);
             console.log(scrollHeight);
             console.log(y);
             function scroll() {
-                if (y>=scrollHeight) {
+                if (y >= scrollHeight) {
                     window.cancelAnimationFrame(temp);
                     return false;
-                }else {
+                } else {
                     y += 15;
                     window.scrollTo(0, y);
                     temp = window.requestAnimationFrame(scroll);
