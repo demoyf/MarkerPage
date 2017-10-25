@@ -5,10 +5,6 @@
                 <a class="text-left close-navigation" @click="hideLeftByA"><span
                         class="glyphicon glyphicon-remove"></span></a>
                 <ul class="list-unstyled has-border-top one-part-nav">
-                    <li class="hover-default"><span class="glyphicon glyphicon-user"></span>Create Free Accounts</li>
-                    <li class="hover-default"><span class="glyphicon glyphicon-log-in"></span>Login</li>
-                </ul>
-                <ul class="list-unstyled has-border-top one-part-nav">
                     <li class="hover-default" @click="toPersonalPage()"><span class="glyphicon glyphicon-fire"></span>IndividualWorks</li>
                 </ul>
                 <ul class="list-unstyled has-border-top one-part-nav">
@@ -34,17 +30,6 @@
                     <li class="hover-default">
                         <span class="glyphicon glyphicon-envelope"></span>
                         Newsletters
-                    </li>
-                </ul>
-                <ul class="list-unstyled has-border-top one-part-nav">
-                    <li class="hover-default">
-                        Advertise
-                    </li>
-                    <li class="hover-default">
-                        Contract Us
-                    </li>
-                    <li class="hover-default">
-                        Support
                     </li>
                 </ul>
             </div>
