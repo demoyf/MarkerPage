@@ -5,15 +5,17 @@
                 <button class="btn btn-lg" type="button" style="background-color: transparent" @click="askShowNav">
                     <span class="glyphicon glyphicon-menu-hamburger" style="color:white;"></span>
                 </button>
-                <svg viewBox="0 0 50 50" class="per-svg-icon">
-                    <g fill-rule="evenodd">
-                        <path d="M 11 21 L 25 10 L 38 20 L 34 24 L 25 17 L 15 25"></path>
-                        <path d="M 21 28 L 25 24 L 32 30 L 41 23 L 44 27 L 33 37"></path>
-                    </g>
-                </svg>
+                <a href="./">
+                    <svg viewBox="0 0 50 50" class="per-svg-icon" >
+                        <g fill-rule="evenodd">
+                            <path d="M 11 21 L 25 10 L 38 20 L 34 24 L 25 17 L 15 25"></path>
+                            <path d="M 21 28 L 25 24 L 32 30 L 41 23 L 44 27 L 33 37"></path>
+                        </g>
+                    </svg>
+                </a>
                 <a class="navbar-brand hidden-sm hidden-xs per-nav-brand" href="/MarkerPage" style="color:white">Home</a>
-                <button type="button" class="visible-xs per-header-user-button btn">
-                    <span class="glyphicon glyphicon-user"></span>
+                <button type="button" class="visible-xs per-header-user-button btn" @click="toPersonal()">
+                    <span class="glyphicon glyphicon-user" ></span>
                 </button>
             </div>
             <nav class="per-header-nav pull-right hidden-xs">
@@ -58,7 +60,7 @@
         -webkit-flex-direction: row;
         -ms-flex-direction: row;
     }
-    .container .navbar-header > svg.per-svg-icon {
+    .container .navbar-header  svg.per-svg-icon {
         height: 40px;
         fill: #fff;
         stroke-linecap: "round";
