@@ -18,6 +18,10 @@
     <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     <style>
+        body {
+            overflow-x: hidden;
+            -ms-overflow-x: hidden;
+        }
         .my-person-page {
             width: 100%;
             min-height: 600px;
@@ -124,7 +128,7 @@
     window.onload = function () {
         setTimeout(function () {
             AOS.init({});
-        }, 1000);
+        }, 600);
     };
     //        js 控制组件成为手风琴效果
 </script>
